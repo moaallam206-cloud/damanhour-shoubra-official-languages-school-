@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Damanhour Official Languages School | Excellence in Education</title>
+    <!-- Premium font for academic branding -->
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Link to the custom CSS -->
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <!-- Glassmorphism Navigation Menu -->
+    <header>
+      <div class="nav-container">
+        <a href="#" class="logo-wrapper">
+          <!-- Logo Image -->
+          <img
+            src="{{ url_for('static', filename='logo.png') }}"
+            alt="Damanhour Official Languages School Logo"
+            class="nav-logo-img"
+          />
+          <div class="logo" data-en="Damanhour shoubra" data-ar="دمنهور شبرا">
+            Damanhour
+            <span data-en="Official Languages School" data-ar="الرسمية للغات"
+              >Official Languages School</span
+            >
+          </div>
+        </a>
+        <ul class="nav-links" id="navLinks">
+          <li><a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a></li>
+          <li>
+            <a href="#features" data-en="Academics" data-ar="الأكاديميات"
+              >Academics</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="cta-btn"
+              data-en="Apply Now"
+              data-ar="قدم الآن"
+              >Apply Now</a
+            >
+          </li>
+          <!-- Globe Translate Button -->
+          <li>
+            <button
+              id="langToggle"
+              class="lang-btn"
+              aria-label="Translate Website"
+            >
+              <span class="globe-icon">🌐</span>
+              <span id="langText">AR</span>
+            </button>
+          </li>
+        </ul>
+        <div class="menu-toggle" id="menuToggle">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Hero Branding Section -->
+    <section class="hero" id="hero">
+      <div class="hero-container">
+        <div class="hero-content">
+          <h1 data-en="Nurturing Minds," data-ar="تنمية العقول،">
+            Nurturing Minds, <br /><span
+              data-en="Shaping Futures"
+              data-ar="وصناعة المستقبل"
+              >Shaping Futures</span
+            >
+          </h1>
+          <p
+            data-en="Welcome to Damanhour Official Languages School. We empower our students with high academic standards, advanced digital facilities, and a supportive path to future leadership."
+            data-ar="مرحبًا بكم في مدرسة دمنهور الرسمية للغات. نحن نمكن طلابنا بمعايير أكاديمية عالية، ومرافق رقمية متطورة، ومسار داعم للقيادة المستقبلية."
+          >
+            Welcome to Damanhour Official Languages School. We empower our
+            students with high academic standards, advanced digital facilities,
+            and a supportive path to future leadership.
+          </p>
+          <div class="hero-buttons">
+            <a
+              href="#contact"
+              class="btn btn-primary"
+              data-en="Discover More"
+              data-ar="اكتشف المزيد"
+              >Discover More</a
+            >
+            <a
+              href="#features"
+              class="btn btn-secondary"
+              data-en="Our Academics"
+              data-ar="أكاديمياتنا"
+              >Our Academics</a
+            >
+          </div>
+        </div>
+        <div class="hero-graphic">
+          <div class="circle-backdrop"></div>
+          <div class="card-overlap">
+            <h3 data-en="DSOS" data-ar="مدرسة دمنهور">DSOS</h3>
+            <p
+              data-en="Damanhour Official Languages School"
+              data-ar="مدرسة دمنهور الرسمية للغات"
+            >
+              Damanhour Official Languages School
+            </p>
+            <hr style="margin: 1.5rem 0; opacity: 0.1" />
+            <h3>98%</h3>
+            <p
+              data-en="Success & Achievement Rate"
+              data-ar="نسبة النجاح والتفوق"
+            >
+              Success & Achievement Rate
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Core School Highlights -->
+    <section class="features" id="features">
+      <div class="section-header">
+        <h2 data-en="Why Choose DSOS?" data-ar="لماذا تختار مدرستنا؟">
+          Why Choose DSOS?
+        </h2>
+        <p
+          data-en="Providing top-tier educational curriculum, character development, and future-focused programs."
+          data-ar="تقديم مناهج تعليمية متميزة، وبناء الشخصية، وبرامج تركز على المستقبل."
+        >
+          Providing top-tier educational curriculum, character development, and
+          future-focused programs.
+        </p>
+      </div>
+      <div class="grid-container">
+        <div class="feature-card">
+          <div class="icon-box">📚</div>
+          <h3 data-en="Advanced Curriculum" data-ar="منهج تعليمي متطور">
+            Advanced Curriculum
+          </h3>
+          <p
+            data-en="Designed to cultivate critical thinking, scientific inquiry, and language excellence."
+            data-ar="مصمم لتنمية التفكير النقدي، والبحث العلمي، والتميز اللغوي."
+          >
+            Designed to cultivate critical thinking, scientific inquiry, and
+            language excellence.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box">💻</div>
+          <h3 data-en="Modern Technology" data-ar="التكنولوجيا الحديثة">
+            Modern Technology
+          </h3>
+          <p
+            data-en="Integrating computer science and interactive tools into everyday student learning environments."
+            data-ar="دمج علوم الكمبيوتر والأدوات التفاعلية في بيئات التعلم اليومية للطلاب."
+          >
+            Integrating computer science and interactive tools into everyday
+            student learning environments.
+          </p>
+        </div>
+        <div class="feature-card">
+          <div class="icon-box">🌟</div>
+          <h3 data-en="Inspirational Community" data-ar="بيئة ملهمة للجميع">
+            Inspirational Community
+          </h3>
+          <p
+            data-en="Supporting physical, artistic, and mental growth to shape well-rounded citizens."
+            data-ar="دعم النمو البدني والفني والذهني لبناء مواطنين متكاملين وجاهزين للمستقبل."
+          >
+            Supporting physical, artistic, and mental growth to shape
+            well-rounded citizens.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dynamic Admissions Inquiry -->
+    <section class="contact" id="contact">
+      <div class="contact-container">
+        <div class="contact-info">
+          <h2 data-en="Join Our School Family" data-ar="انضم إلى عائلة مدرستنا">
+            Join Our <br />School Family
+          </h2>
+          <p
+            data-en="Ready to register? Submit your inquiry details below. Our admissions team will review your message and contact you promptly."
+            data-ar="هل أنت مستعد للتسجيل؟ أرسل بيانات طلبك أدناه، وسيقوم فريق القبول لدينا بمراجعة رسالتك والتواصل معك فورًا."
+          >
+            Ready to register? Submit your inquiry details below. Our admissions
+            team will review your message and contact you promptly.
+          </p>
+          <div class="info-details">
+            <div class="info-item">
+              <span>📍</span>
+              <p>
+                <strong data-en="Address:" data-ar="العنوان:">Address:</strong>
+                <span
+                  data-en="Shoubra, Damanhour, El Beheira, Egypt"
+                  data-ar="شبرا الخيمة، دمنهور، قسم اول، مصر"
+                  >Shoubra elkhima, Damanhour, qesm oul, Egypt</span
+                >
+              </p>
+            </div>
+            <div class="info-item">
+              <span>✉️</span>
+              <p>
+                <strong data-en="Email:" data-ar="البريد الإلكتروني:"
+                  >Email:</strong
+                >
+                admissionsdsos.edu.eg@gmail.com
+              </p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-form" id="enrollmentForm">
+          <div class="form-group">
+            <label for="studentName" data-en="Student Name" data-ar="اسم الطالب"
+              >Student Name</label
+            >
+            <input
+              type="text"
+              id="studentName"
+              placeholder="e.g. Ahmed Ali"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="parentEmail"
+              data-en="Parent/Guardian Email"
+              data-ar="البريد الإلكتروني لولي الأمر"
+              >Parent/Guardian Email</label
+            >
+            <input
+              type="email"
+              id="parentEmail"
+              placeholder="e.g. parent@email.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="gradeLevel" data-en="Grade Level" data-ar="الصف الدراسي"
+              >Grade Level</label
+            >
+            <input
+              type="text"
+              id="gradeLevel"
+              placeholder="e.g. Primary 1, Prep 1, Secondary 1"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label
+              for="message"
+              data-en="Message/Questions"
+              data-ar="الرسالة / الاستفسارات"
+              >Message/Questions</label
+            >
+            <textarea
+              id="message"
+              rows="4"
+              placeholder="Tell us about your student's educational goals..."
+              required
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            class="btn btn-primary"
+            style="border: none; cursor: pointer"
+            data-en="Send Application Inquiry"
+            data-ar="إرسال طلب الاستفسار"
+          >
+            Send Application Inquiry
+          </button>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+      <p
+        data-en="&copy; 2026 Damanhour Official Languages School. Crafted with Python, HTML, CSS, and JS. All rights reserved."
+        data-ar="&copy; ٢٠٢٦ مدرسة دمنهور الرسمية للغات. تم التطوير باستخدام بايثون، HTML، CSS، و JS. جميع الحقوق محفوظة."
+      >
+        &copy; 2026 Damanhour Official Languages School. Crafted with Python,
+        HTML, CSS, and JS. All rights reserved.
+      </p>
+    </footer>
+
+    <!-- Link to the JS logic -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+  </body>
+</html>

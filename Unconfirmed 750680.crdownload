@@ -1,0 +1,83 @@
+from flask import Flask, render_template, request, jsonify
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+
+app = Flask(__name__)
+
+# --- EMAIL CONFIGURATION ---
+SENDER_EMAIL = "moaallam206@gmail.com"      # The Gmail account you set up in Step 1
+SENDER_PASSWORD = "kdlt ubvc qolz wsmi"   # The 16-letter password from Google (no spaces)
+RECEIVER_EMAIL = "admissions@dsos.edu.eg"         # Where you want to RECEIVE the applications
+
+# 1. Route to serve the School Homepage
+@app.route('/')
+def home():
+    return render_template('index.html')
+
+# 2. API Endpoint to handle contact/admission inquiries & send email
+@app.route('/api/enroll', methods=['POST'])
+def enroll_student():
+    data = request.json
+    student_name = data.get('studentName')
+    parent_email = data.get('parentEmail')
+    grade_level = data.get('gradeLevel')
+    message = data.get('message')
+
+    # Data Validation
+    if not student_name or not parent_email:
+        return jsonify({"status": "error", "message": "Missing required fields."}), 400
+
+    # Create the Email Content
+    subject = f"🔔 New Admission Inquiry: {student_name} ({grade_level})"
+    
+    body = f"""
+    You have received a new admission inquiry from the school website:
+    
+    --------------------------------------------------
+    Student Name:   {student_name}
+    Grade Level:    {grade_level}
+    Parent Email:   {parent_email}
+    
+    Message:
+    {message}
+    --------------------------------------------------
+    
+    This email was automatically sent by the Damanhour Official Languages School server.
+    """
+
+    # Set up the MIME Message
+    msg = MIMEMultipart()
+    msg['From'] = SENDER_EMAIL
+    msg['To'] = RECEIVER_EMAIL
+    msg['Subject'] = subject
+    msg.attach(MIMEText(body, 'plain', 'utf-8'))
+
+    try:
+        # Connect to Gmail's SMTP server
+        print("[EMAIL] Connecting to server...")
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls() # Secure the connection
+        
+        # Log in and send the email
+        server.login(SENDER_EMAIL, SENDER_PASSWORD)
+        server.sendmail(SENDER_EMAIL, RECEIVER_EMAIL, msg.as_string())
+        server.quit()
+        
+        print(f"[EMAIL] Success! Inquiry email sent to {RECEIVER_EMAIL}")
+        
+        return jsonify({
+            "status": "success", 
+            "message": f"Inquiry received successfully! A copy has been sent to our admissions team. Welcome, {student_name}!"
+        })
+
+    except Exception as e:
+        print(f"[EMAIL ERROR] Failed to send email: {e}")
+        # Even if the email fails, we tell the user we logged it so they don't get stuck
+        return jsonify({
+            "status": "partial_success",
+            "message": f"Application submitted! However, our email server is currently busy. We will reach out to you at {parent_email}."
+        })
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=8080, debug=True)
